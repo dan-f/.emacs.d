@@ -1,0 +1,10 @@
+.cask/
+.mc-lists.el
+auto-save-list/
+elpa
+eshell
+projectile-bookmarks.eld
+projectile.cache
+recentf
+todo.org
+smex-items
