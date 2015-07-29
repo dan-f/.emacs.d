@@ -13,7 +13,8 @@
                 helm-quick-update t)
   :bind ("C-c h" . helm-command-prefix)
   :init (progn
-          (helm-mode 1)))
+          (helm-mode 1)
+          (helm-adaptive-mode 1)))
 
 (use-package helm-projectile
   :ensure t

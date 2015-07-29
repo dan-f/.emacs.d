@@ -15,10 +15,15 @@
             (define-key evil-motion-state-map (kbd "C-k") 'evil-window-up)
             (define-key evil-motion-state-map (kbd "C-l") 'evil-window-right)
 
+            (evil-mode)
             ))
 
 (use-package evil-god-state
   :ensure t
   :config (evil-define-key 'normal global-map "," 'evil-execute-in-god-state))
+
+(use-package evil-smartparens
+  :ensure t
+  :config (add-hook 'smartparens-strict-mode-hook #'evil-smartparens-mode))
 
 (provide 'init-evil)
