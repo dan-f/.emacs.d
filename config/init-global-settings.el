@@ -1,6 +1,7 @@
 ;; global settings
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message)
+(setq initial-major-mode 'fundamental-mode)
 (setq linum-format "%d ")
 (setq scroll-conservatively 1)
 (when (display-graphic-p) ; better GUI scrolling

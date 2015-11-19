@@ -3,6 +3,8 @@
 (use-package helm-themes
   :ensure t)
 
-(load-theme 'hc-zenburn)
+(load-theme 'ample)
+
+(set-frame-font "Source Code Pro")
 
 (provide 'init-appearance)

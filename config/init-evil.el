@@ -15,7 +15,7 @@
             (define-key evil-motion-state-map (kbd "C-k") 'evil-window-up)
             (define-key evil-motion-state-map (kbd "C-l") 'evil-window-right)
 
-            (evil-mode)
+            ;; (evil-mode)
             ))
 
 (use-package evil-god-state

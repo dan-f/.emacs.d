@@ -9,4 +9,8 @@
                   (web-mode-set-engine "underscore")))
             (add-hook 'web-mode-hook 'dan-f/web-mode-hook)))
 
+(use-package sass-mode
+  :ensure t
+  :config (setq sass-indent-offset 4))
+
 (provide 'init-web)
