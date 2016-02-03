@@ -19,6 +19,7 @@
                   init-js
                   init-lisp
                   init-markdown
+                  init-org
                   init-osx
                   init-python
                   init-tools

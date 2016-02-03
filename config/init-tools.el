@@ -7,44 +7,51 @@
   :ensure t
   :init (projectile-global-mode))
 
-;; (use-package helm
+(use-package helm
+  :ensure t
+  :config (progn
+            (require 'helm-config)
+            (setq helm-split-window-in-side-p t
+                  helm-quick-update t))
+  :bind ("C-c h" . helm-command-prefix)
+  :bind ("M-x" . helm-M-x)
+  :bind ("C-x C-f" . helm-find-files)
+  :init (progn
+          (helm-mode 1)
+          (helm-adaptive-mode 1)
+          (helm-push-mark-mode 1)))
+
+(use-package helm-projectile
+  :ensure t
+  :init (helm-projectile-on))
+
+(use-package helm-themes
+  :ensure t)
+
+;; (use-package flx-ido
 ;;   :ensure t
-;;   :config (setq helm-split-window-in-side-p t
-;;                 helm-quick-update t)
-;;   :bind ("C-c h" . helm-command-prefix)
-;;   :init (progn
-;;           (helm-mode 1)
-;;           (helm-adaptive-mode 1)))
+;;   :init
+;;   (require 'flx-ido)
+;;   (ido-mode 1)
+;;   (ido-everywhere 1)
+;;   (flx-ido-mode)
+;;   (setq ido-enable-flex-matching t)
+;;   (setq ido-use-faces nil)
+;;   (setq flx-ido-threshold 500)
+;;   (setq ido-auto-merge-work-directories-length -1)) ; Don't show me options in other directories
 
-;; (use-package helm-projectile
+;; (use-package ido-ubiquitous
 ;;   :ensure t
-;;   :init (helm-projectile-on))
+;;   :init (ido-ubiquitous-mode 1))
 
-;; (use-package helm-themes
-;;   :ensure t)
-
-(use-package flx-ido
-  :ensure t
-  :init
-  (require 'flx-ido)
-  (ido-mode 1)
-  (ido-everywhere 1)
-  (flx-ido-mode)
-  (setq ido-enable-flex-matching t)
-  (setq ido-use-faces nil)
-  (setq flx-ido-threshold 500))
-
-(use-package ido-ubiquitous
-  :ensure t
-  :init (ido-ubiquitous-mode 1))
-
-(use-package smex
-  :ensure t
-  :config (global-set-key (kbd "M-x") 'smex))
+;; (use-package smex
+;;   :ensure t
+;;   :config (global-set-key (kbd "M-x") 'smex))
 
 (use-package magit
   :ensure t
   :bind ("C-c m" . magit-status)
+  :bind ("<f5>" . magit-status)
   :init (setq magit-last-seen-setup-instructions "1.4.0")
   :config
   (setq magit-push-always-verify nil)
