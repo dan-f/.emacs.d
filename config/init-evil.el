@@ -4,7 +4,6 @@
 (use-package evil
   :ensure t
   :config (progn
-
             ;; window navigation
             (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
             (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
@@ -14,13 +13,24 @@
             (define-key evil-motion-state-map (kbd "C-j") 'evil-window-down)
             (define-key evil-motion-state-map (kbd "C-k") 'evil-window-up)
             (define-key evil-motion-state-map (kbd "C-l") 'evil-window-right)
-
-            ;; (evil-mode)
             ))
 
 (use-package evil-god-state
   :ensure t
   :config (evil-define-key 'normal global-map "," 'evil-execute-in-god-state))
+
+(use-package evil-leader
+  :ensure t
+  :init
+  (setq evil-leader/leader "SPC")
+  (evil-leader/set-key
+         "b" 'switch-to-buffer
+         "f" 'helm-find-files
+         "m" 'magit-status
+         "p" 'helm-projectile)
+  :config
+  (global-evil-leader-mode)
+  (evil-mode))
 
 (use-package evil-smartparens
   :ensure t
