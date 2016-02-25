@@ -87,4 +87,9 @@
   :config
   (setq explicit-shell-file-name "zsh"))
 
+(use-package dtrt-indent
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook (lambda () (dtrt-indent-mode t))))
+
 (provide 'init-tools)

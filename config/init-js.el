@@ -7,6 +7,7 @@
   :config (add-hook 'js2-mode-hook #'js2-refactor-mode))
 
 (use-package coffee-mode
-  :ensure t)
+  :ensure t
+  :config (setq coffee-tab-width 4))
 
 (provide 'init-js)
