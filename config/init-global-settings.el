@@ -15,7 +15,6 @@
 (column-number-mode)
 (delete-selection-mode)
 (size-indication-mode)
-(global-hl-line-mode)
 (use-package ibuffer
   :bind ("C-x C-b" . ibuffer))
 
