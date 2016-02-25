@@ -82,4 +82,9 @@
       '(("irc.freenode.net" :port 6697 :encryption tls
 	 :channels ("#emacs"))))
 
+;; Emacs shell mode and fish don't get along
+(use-package shell
+  :config
+  (setq explicit-shell-file-name "zsh"))
+
 (provide 'init-tools)
