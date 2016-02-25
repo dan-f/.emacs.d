@@ -8,3 +8,8 @@ projectile.cache
 recentf
 todo.org
 smex-items
+/abbrev_defs
+/bookmarks
+/games/snake-scores
+/helm-adaptive-history
+custom.el
