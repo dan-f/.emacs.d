@@ -117,6 +117,6 @@ global keybinding scope."
   :global t
   :keymap dan-f/editing-map)
 
-(dan-f/editing-mode)
+;; (dan-f/editing-mode)
 
 (provide 'init-editing)
