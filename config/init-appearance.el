@@ -7,4 +7,8 @@
 (use-package helm-themes
   :ensure t)
 
+(use-package smart-mode-line
+  :ensure t
+  :config (smart-mode-line-enable))
+
 (provide 'init-appearance)
