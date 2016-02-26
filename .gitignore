@@ -13,3 +13,6 @@ smex-items
 /games/snake-scores
 /helm-adaptive-history
 custom.el
+/.DS_Store
+/ac-comphist.dat
+/ido.last
