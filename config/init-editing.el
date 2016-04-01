@@ -40,6 +40,11 @@
   :ensure t
   :init (add-hook 'prog-mode-hook '(lambda () (progn (highlight-symbol-mode) (highlight-symbol-nav-mode)))))
 
+(use-package dtrt-indent
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook (lambda () (dtrt-indent-mode t))))
+
 ;; editing commands and minor mode
 (defcustom dan-f/auto-save t
   "Non-nil automatically saves buffers as they lose focus.")
