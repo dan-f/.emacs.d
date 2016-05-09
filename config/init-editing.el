@@ -12,15 +12,6 @@
   :ensure t
   :init (global-undo-tree-mode))
 
-(use-package smartparens
-    :ensure t
-    :config (setq sp-highlight-pair-overlay nil)
-    :init (progn
-            (require 'smartparens-config)
-            (smartparens-global-mode)
-            (sp-use-paredit-bindings)
-            (turn-on-show-smartparens-mode)))
-
 (use-package expand-region
   :ensure t
   :bind ("C-=" . er/expand-region))
