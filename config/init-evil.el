@@ -23,6 +23,10 @@
   :ensure t
   :config (require 'evil-magit))
 
+(use-package evil-commentary
+  :ensure t
+  :init (evil-commentary-mode))
+
 (use-package evil-leader
   :ensure t
   :init
