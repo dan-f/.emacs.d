@@ -57,10 +57,6 @@
   (setq magit-push-always-verify nil)
   (setq magit-completing-read-function 'magit-ido-completing-read))
 
-(use-package git-gutter
-  :ensure t
-  :init (global-git-gutter-mode +1))
-
 ;; (use-package flycheck
 ;;   :ensure t
 ;;   :init (global-flycheck-mode))

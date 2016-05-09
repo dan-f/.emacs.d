@@ -11,6 +11,6 @@
 
 (use-package sass-mode
   :ensure t
-  :config (setq sass-indent-offset 4))
+  :init (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode)))
 
 (provide 'init-web)
