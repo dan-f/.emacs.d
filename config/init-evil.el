@@ -19,6 +19,10 @@
   :ensure t
   :config (evil-define-key 'normal global-map "," 'evil-execute-in-god-state))
 
+(use-package evil-magit
+  :ensure t
+  :config (require 'evil-magit))
+
 (use-package evil-leader
   :ensure t
   :init
@@ -27,13 +31,16 @@
          "b" 'switch-to-buffer
          "f" 'helm-find-files
          "m" 'magit-status
+         "h" 'helm-command-prefix
          "p" 'helm-projectile)
   :config
-  (global-evil-leader-mode)
-  (evil-mode))
+  (global-evil-leader-mode))
 
 (use-package evil-smartparens
   :ensure t
   :config (add-hook 'smartparens-strict-mode-hook #'evil-smartparens-mode))
+
+(evil-mode 1)
+(evil-set-toggle-key "C-S-z")
 
 (provide 'init-evil)
