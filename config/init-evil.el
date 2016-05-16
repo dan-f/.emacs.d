@@ -43,10 +43,6 @@
   :config
   (global-evil-leader-mode))
 
-(use-package evil-smartparens
-  :ensure t
-  :config (add-hook 'smartparens-strict-mode-hook #'evil-smartparens-mode))
-
 (evil-mode 1)
 (evil-set-toggle-key "C-S-z")
 
