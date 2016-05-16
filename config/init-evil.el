@@ -32,11 +32,14 @@
   :init
   (setq evil-leader/leader "SPC")
   (evil-leader/set-key
-         "b" 'switch-to-buffer
-         "f" 'helm-find-files
-         "m" 'magit-status
-         "h" 'helm-command-prefix
-         "p" 'helm-projectile)
+    "e" 'find-file
+    "b" 'switch-to-buffer
+    "q" 'evil-quit
+    "f" 'projectile-find-file
+    "m" 'magit-status
+    "h" 'helm-command-prefix
+    "p" 'projectile-switch-project
+    "a" 'org-agenda)
   :config
   (global-evil-leader-mode))
 

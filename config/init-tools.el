@@ -67,13 +67,6 @@
   :config
   (setq company-idle-delay 0.1))
 
-(use-package org
-  :ensure t
-  :config
-  (setq org-default-notes-file (concat org-directory "/notes.org"))
-  (define-key global-map (kbd "C-c c") 'org-capture)
-  (auto-fill-mode))
-
 (setq rcirc-server-alist
       '(("irc.freenode.net" :port 6697 :encryption tls
 	 :channels ("#emacs"))))
