@@ -106,13 +106,17 @@ TODO:
     (define-key map (kbd "C-c ;") 'dan-f/comment-or-uncomment-line-or-region)
     map))
 
-(define-minor-mode dan-f/editing-mode
+(define-minor-mode dan-f/global-editing-mode
   "Minor mode for global editing bindings.  Avoids polluting the
 global keybinding scope."
   :group 'dan-f
   :global t
   :keymap dan-f/editing-map)
 
-;; (dan-f/editing-mode)
+(define-minor-mode dan-f/editing-mode
+  :group 'dan-f
+  :keymap dan-f/editing-map)
+
+(dan-f/editing-mode)
 
 (provide 'init-editing)
