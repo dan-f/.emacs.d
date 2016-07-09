@@ -1,6 +1,6 @@
 ;; global settings
 (setq inhibit-startup-screen t)
-(setq initial-scratch-message)
+(setq initial-scratch-message nil)
 (setq initial-major-mode 'fundamental-mode)
 (setq linum-format "%d ")
 (setq fill-column 80)
