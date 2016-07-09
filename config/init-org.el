@@ -13,7 +13,9 @@
   (define-key global-map (kbd "C-c c") 'org-capture)
   (setq org-default-notes-file (concat org-directory "/notes.org"))
   (setq org-capture-templates
-        '(("t" "Work Task" entry (file+headline "~/org/agendas/work.org" "Tasks"))
+        '(("n" "Note" entry (file+datetree "~/org/notes.org")
+           "* %?\nEntered on %U\n  %i\n")
+          ("t" "Work Task" entry (file+headline "~/org/agendas/work.org" "Tasks"))
           ("p" "Personal Task" entry (file+headline "~/org/agendas/personal.org" "Tasks"))))
 
   (define-key global-map (kbd "C-c l") 'org-store-link)
