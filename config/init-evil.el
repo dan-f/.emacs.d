@@ -43,7 +43,7 @@
   :config
   (global-evil-leader-mode))
 
-(evil-mode 1)
+;; (evil-mode 1)
 (evil-set-toggle-key "C-S-z")
 
 (provide 'init-evil)
