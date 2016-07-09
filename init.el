@@ -18,9 +18,11 @@
                   init-global-settings
                   init-js
                   init-lisp
+                  init-linkeddata
                   init-markdown
                   init-org
                   init-osx
+                  init-server
                   init-python
                   init-tools
                   init-web
