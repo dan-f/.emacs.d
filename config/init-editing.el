@@ -23,25 +23,18 @@
   ("C-<" . mc/mark-previous-like-this)
   ("C-c C-<" . mc/mark-all-like-this))
 
-(use-package electric-pair-mode
-  :init
-  (defun locally-turn-off-electric-pair-mode ()
-    (make-variable-buffer-local 'electric-pair-mode)
-    (setq electric-pair-mode nil))
-  (add-hook 'eshell-mode-hook 'locally-turn-off-electric-pair-mode)
-  (electric-pair-mode))
-
 (use-package smartparens
   :ensure t
   :config
   (require 'smartparens-config)
-  (setq sp-smartparens-bindings 'paredit)
+  (setq sp-base-key-bindings 'paredit)
   (setq sp-highlight-pair-overlay nil)
-  ;; electric-pair-mode is better at inserting parens
-  (setq sp-insert-pair nil)
+  (sp-with-modes '(js2-mode javascript-mode c-mode c++-mode)
+    (sp-local-pair "/*" "*/" :post-handlers '(("| " "SPC") ("* ||\n[i]" "RET"))))
+  (dolist (pair sp-pair-list)
+    (sp-pair (car pair) nil :post-handlers '(("||\n[i]" "RET") ("| " "SPC"))))
   :init
   (smartparens-global-mode)
-  (electric-pair-mode)
   (show-smartparens-global-mode))
 
 (use-package rainbow-delimiters
