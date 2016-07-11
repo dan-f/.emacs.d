@@ -3,6 +3,14 @@
   :init (when (memq window-system '(mac ns))
 	  (exec-path-from-shell-initialize)))
 
+(use-package dired-details
+  :ensure t
+  :config
+  (setq dired-details-hidden-string "")
+  :init
+  (require 'dired-details)
+  (dired-details-install))
+
 (use-package projectile
   :ensure t
   :init (projectile-global-mode))
