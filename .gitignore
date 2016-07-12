@@ -16,3 +16,4 @@ custom.el
 /.DS_Store
 /ac-comphist.dat
 /ido.last
+/request/curl-cookie-jar

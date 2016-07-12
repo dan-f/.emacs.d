@@ -27,13 +27,13 @@
   :ensure t
   :config
   (require 'smartparens-config)
-  (setq sp-base-key-bindings 'paredit)
   (setq sp-highlight-pair-overlay nil)
   (sp-with-modes '(js2-mode javascript-mode c-mode c++-mode)
     (sp-local-pair "/*" "*/" :post-handlers '(("| " "SPC") ("* ||\n[i]" "RET"))))
-  (dolist (pair sp-pair-list)
-    (sp-pair (car pair) nil :post-handlers '(("||\n[i]" "RET") ("| " "SPC"))))
+  (dolist (opener '("(" "{" "["))
+    (sp-pair opener nil :post-handlers '(("||\n[i]" "RET") ("| " "SPC"))))
   :init
+  (setq sp-base-key-bindings 'paredit)
   (smartparens-global-mode)
   (show-smartparens-global-mode))
 
