@@ -43,7 +43,13 @@
   :config
   (global-evil-leader-mode))
 
-;; (evil-mode 1)
+(use-package key-chord
+  :ensure t
+  :init
+  (key-chord-define evil-insert-state-map "kj" 'evil-normal-state)
+  (key-chord-define evil-insert-state-map "jk" 'evil-normal-state))
+
+(evil-mode 1)
 (evil-set-toggle-key "C-S-z")
 
 (provide 'init-evil)
