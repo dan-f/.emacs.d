@@ -82,7 +82,7 @@
 ;; Emacs shell mode and fish don't get along
 (use-package shell
   :config
-  (setq explicit-shell-file-name "zsh"))
+  (setq explicit-shell-file-name "bash"))
 
 (use-package dtrt-indent
   :ensure t
