@@ -3,7 +3,7 @@
 (setq initial-scratch-message nil)
 (setq initial-major-mode 'fundamental-mode)
 (setq linum-format "%d ")
-(setq fill-column 80)
+(setq-default fill-column 80)
 (setq scroll-conservatively 1)
 (when (display-graphic-p) ; better GUI scrolling
   (progn
