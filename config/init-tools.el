@@ -15,46 +15,24 @@
   :ensure t
   :init (projectile-global-mode))
 
-(use-package helm
+(use-package counsel
   :ensure t
-  :config (progn
-            (require 'helm-config)
-            (setq helm-split-window-in-side-p t
-                  helm-quick-update t))
-  :bind ("C-c h" . helm-command-prefix)
-  :bind ("M-x" . helm-M-x)
-  :bind ("C-x C-f" . helm-find-files)
-  :init (progn
-          (helm-mode 1)
-          (helm-adaptive-mode 1)
-          (helm-push-mark-mode 1)))
+  :config
+  (global-set-key (kbd "M-x") 'counsel-M-x)
+  (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
-(use-package helm-projectile
+(use-package swiper
   :ensure t
-  :init (helm-projectile-on))
+  :config
+  (global-set-key "\C-s" 'swiper)
+  (define-key evil-normal-state-map (kbd "/") 'swiper))
 
-(use-package helm-themes
-  :ensure t)
-
-;; (use-package flx-ido
-;;   :ensure t
-;;   :init
-;;   (require 'flx-ido)
-;;   (ido-mode 1)
-;;   (ido-everywhere 1)
-;;   (flx-ido-mode)
-;;   (setq ido-enable-flex-matching t)
-;;   (setq ido-use-faces nil)
-;;   (setq flx-ido-threshold 500)
-;;   (setq ido-auto-merge-work-directories-length -1)) ; Don't show me options in other directories
-
-;; (use-package ido-ubiquitous
-;;   :ensure t
-;;   :init (ido-ubiquitous-mode 1))
-
-;; (use-package smex
-;;   :ensure t
-;;   :config (global-set-key (kbd "M-x") 'smex))
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq projectile-completion-system 'ivy))
 
 (use-package magit
   :ensure t
@@ -62,8 +40,7 @@
   :bind ("<f5>" . magit-status)
   :init (setq magit-last-seen-setup-instructions "1.4.0")
   :config
-  (setq magit-push-always-verify nil)
-  (setq magit-completing-read-function 'magit-ido-completing-read))
+  (setq magit-push-always-verify nil))
 
 ;; (use-package flycheck
 ;;   :ensure t
