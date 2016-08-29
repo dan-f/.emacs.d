@@ -47,7 +47,8 @@
   :ensure t
   :init
   (key-chord-define evil-insert-state-map "kj" 'evil-normal-state)
-  (key-chord-define evil-insert-state-map "jk" 'evil-normal-state))
+  (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+  (key-chord-mode t))
 
 (evil-mode 1)
 (evil-set-toggle-key "C-S-z")
