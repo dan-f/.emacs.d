@@ -16,6 +16,7 @@
 (column-number-mode)
 (delete-selection-mode)
 (size-indication-mode)
+(windmove-default-keybindings)
 (use-package ibuffer
   :bind ("C-x C-b" . ibuffer))
 

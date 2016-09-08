@@ -10,7 +10,7 @@
 ;; editing packages
 (use-package undo-tree
   :ensure t
-  :init (global-undo-tree-mode))
+  :config (global-undo-tree-mode))
 
 (use-package expand-region
   :ensure t
@@ -25,25 +25,25 @@
 
 (use-package smartparens
   :ensure t
+  :init
+  (setq sp-base-key-bindings 'paredit
+        sp-highlight-pair-overlay nil)
   :config
   (require 'smartparens-config)
-  (setq sp-highlight-pair-overlay nil)
   (sp-with-modes '(js2-mode javascript-mode c-mode c++-mode)
     (sp-local-pair "/*" "*/" :post-handlers '(("| " "SPC") ("* ||\n[i]" "RET"))))
   (dolist (opener '("(" "{" "["))
     (sp-pair opener nil :post-handlers '(("||\n[i]" "RET") ("| " "SPC"))))
-  :init
-  (setq sp-base-key-bindings 'paredit)
   (smartparens-global-mode)
   (show-smartparens-global-mode))
 
 (use-package rainbow-delimiters
   :ensure t
-  :init (add-hook 'prog-mode-hook '(lambda () (rainbow-delimiters-mode))))
+  :config (add-hook 'prog-mode-hook '(lambda () (rainbow-delimiters-mode))))
 
 (use-package highlight-symbol
   :ensure t
-  :init (add-hook 'prog-mode-hook '(lambda () (progn (highlight-symbol-mode) (highlight-symbol-nav-mode)))))
+  :config (add-hook 'prog-mode-hook '(lambda () (progn (highlight-symbol-mode) (highlight-symbol-nav-mode)))))
 
 (use-package dtrt-indent
   :ensure t
@@ -120,10 +120,10 @@ TODO:
       (save-excursion
         (beginning-of-line)
         (let ((beginning (point)))
-          (next-line)
+          (forward-line)
           (kill-ring-save beginning (point))
           (yank)))
-      (next-line)))))
+      (forward-line)))))
 
 (defvar dan-f/editing-map
   (let ((map (make-sparse-keymap)))

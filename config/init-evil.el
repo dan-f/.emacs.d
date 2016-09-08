@@ -25,11 +25,11 @@
 
 (use-package evil-commentary
   :ensure t
-  :init (evil-commentary-mode))
+  :config (evil-commentary-mode))
 
 (use-package evil-leader
   :ensure t
-  :init
+  :config
   (setq evil-leader/leader "SPC")
   (evil-leader/set-key
     "e" 'find-file
@@ -40,12 +40,11 @@
     "h" 'helm-command-prefix
     "p" 'projectile-switch-project
     "a" 'org-agenda)
-  :config
   (global-evil-leader-mode))
 
 (use-package key-chord
   :ensure t
-  :init
+  :config
   (key-chord-define evil-insert-state-map "kj" 'evil-normal-state)
   (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
   (key-chord-mode t))
