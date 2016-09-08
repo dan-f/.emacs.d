@@ -1,6 +1,6 @@
 ;; global editing settings
 (setq-default indent-tabs-mode nil)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'dan-f/delete-trailing-whitespace)
 (setq require-final-newline t)
 (setq make-backup-files nil)
 (setq backup-inhibited t)
@@ -63,6 +63,22 @@
 (add-hook 'mouse-leave-buffer-hook 'dan-f/auto-save-command)
 (dolist (func '(switch-to-buffer other-window select-window))
   (advice-add func :before #'dan-f/auto-save-command))
+
+(defun dan-f/delete-trailing-whitespace-dwim ()
+  "Delete trailing whitespace from the buffer, ignoring the
+current line if the point is within trailing whitespace."
+  (interactive)
+  (if (and (looking-at "[[:space:]]*\n$")
+           (looking-back "[[:space:]]"))
+      (progn
+        (save-excursion
+          (beginning-of-line)
+          (delete-trailing-whitespace (buffer-end -1) (point)))
+        (save-excursion
+          (forward-line)
+          (beginning-of-line)
+          (delete-trailing-whitespace (point) nil)))
+    (delete-trailing-whitespace)))
 
 (defun dan-f/open-line-below ()
   "Open a new line below the cursor."
