@@ -1,6 +1,7 @@
 ;; global editing settings
 (setq-default indent-tabs-mode nil)
-(add-hook 'before-save-hook 'dan-f/delete-trailing-whitespace)
+(add-hook 'dan-f/buffer-loses-focus-hook 'dan-f/auto-save-command)
+(add-hook 'dan-f/buffer-loses-focus-hook 'dan-f/delete-trailing-whitespace-dwim)
 (setq require-final-newline t)
 (setq make-backup-files nil)
 (setq backup-inhibited t)
@@ -59,26 +60,35 @@
              (buffer-modified-p (current-buffer))
              (file-writable-p buffer-file-name))
     (save-buffer)))
-(add-hook 'focus-out-hook 'dan-f/auto-save-command)
-(add-hook 'mouse-leave-buffer-hook 'dan-f/auto-save-command)
+
+(defvar dan-f/buffer-loses-focus-hook nil
+  "Hook called whenever a buffer loses focus, either by changing
+  buffers or when the frame loses focus.")
+
+(defun dan-f/run-buffer-loses-focus-hooks (&rest args)
+  (run-hooks 'dan-f/buffer-loses-focus-hook))
+
+(add-hook 'focus-out-hook 'dan-f/run-buffer-loses-focus-hooks)
+(add-hook 'mouse-leave-buffer-hook 'dan-f/run-buffer-loses-focus-hooks)
 (dolist (func '(switch-to-buffer other-window select-window))
-  (advice-add func :before #'dan-f/auto-save-command))
+  (advice-add func :before #'dan-f/run-buffer-loses-focus-hooks))
 
 (defun dan-f/delete-trailing-whitespace-dwim ()
   "Delete trailing whitespace from the buffer, ignoring the
 current line if the point is within trailing whitespace."
   (interactive)
-  (if (and (looking-at "[[:space:]]*\n$")
-           (looking-back "[[:space:]]"))
-      (progn
-        (save-excursion
-          (beginning-of-line)
-          (delete-trailing-whitespace (buffer-end -1) (point)))
-        (save-excursion
-          (forward-line)
-          (beginning-of-line)
-          (delete-trailing-whitespace (point) nil)))
-    (delete-trailing-whitespace)))
+  (unless buffer-read-only
+    (if (and (looking-at "[[:space:]]*$")
+             (looking-back "[[:space:]]"))
+        (progn
+          (save-excursion
+            (beginning-of-line)
+            (delete-trailing-whitespace (buffer-end -1) (point)))
+          (save-excursion
+            (forward-line)
+            (beginning-of-line)
+            (delete-trailing-whitespace (point) nil)))
+      (delete-trailing-whitespace))))
 
 (defun dan-f/open-line-below ()
   "Open a new line below the cursor."
