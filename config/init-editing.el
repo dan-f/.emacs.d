@@ -89,8 +89,9 @@ current line if the point is within trailing whitespace."
 (defun dan-f/open-line-above ()
   "Open a new line above the cursor."
   (interactive)
-  (previous-line)
-  (dan-f/open-line-below))
+  (beginning-of-line)
+  (open-line 1)
+  (indent-according-to-mode))
 
 (defun dan-f/comment-or-uncomment-line-or-region ()
   "Toggles commenting on the current line if no region is defined,
