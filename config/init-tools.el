@@ -8,7 +8,6 @@
   :init
   (setq dired-details-hidden-string "")
   :config
-  (require 'dired-details)
   (dired-details-install))
 
 (use-package projectile
@@ -17,24 +16,24 @@
 
 (use-package ivy
   :ensure t
+  :init
+  (setq ivy-use-virtual-buffers t
+        projectile-completion-system 'ivy)
   :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq projectile-completion-system 'ivy)
   (use-package counsel
     :ensure t
-    :config
-    (global-set-key (kbd "M-x") 'counsel-M-x)
-    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
+    :bind (("M-x" . counsel-M-x)
+           :map read-expression-map
+           ("C-r" . counsel-expression-history)))
   (use-package swiper
     :ensure t
-    :config
-    (global-set-key "\C-s" 'swiper)))
+    :bind ("C-s" . swiper))
+  (ivy-mode t))
 
 (use-package magit
   :ensure t
-  :bind ("C-c m" . magit-status)
-  :bind ("<f5>" . magit-status)
+  :bind (("C-c m" . magit-status)
+         ("<f5>" . magit-status))
   :init
   (setq magit-last-seen-setup-instructions "1.4.0"
         magit-push-always-verify nil))

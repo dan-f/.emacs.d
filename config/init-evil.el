@@ -1,27 +1,20 @@
-;; Apparently the following has to happen before the call to (require 'evil)
-(setq evil-want-C-u-scroll t)
-
 (use-package evil
   :ensure t
-  :config (progn
-            ;; window navigation
-            (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
-            (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
-            (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
-            (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
-            (define-key evil-motion-state-map (kbd "C-h") 'evil-window-left)
-            (define-key evil-motion-state-map (kbd "C-j") 'evil-window-down)
-            (define-key evil-motion-state-map (kbd "C-k") 'evil-window-up)
-            (define-key evil-motion-state-map (kbd "C-l") 'evil-window-right)
-            ))
-
-(use-package evil-god-state
-  :ensure t
-  :config (evil-define-key 'normal global-map "," 'evil-execute-in-god-state))
+  :bind (:map evil-normal-state-map
+              ("C-h" . evil-window-left)
+              ("C-j" . evil-window-down)
+              ("C-k" . evil-window-up)
+              ("C-l" . evil-window-right)
+              ("C-h" . evil-window-left)
+              ("C-j" . evil-window-down)
+              ("C-k" . evil-window-up)
+              ("C-l" . evil-window-right))
+  :init
+  (setq evil-want-C-u-scroll t
+        evil-set-toggle-key "C-S-z"))
 
 (use-package evil-magit
-  :ensure t
-  :config (require 'evil-magit))
+  :ensure t)
 
 (use-package evil-commentary
   :ensure t
@@ -49,7 +42,6 @@
   (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
   (key-chord-mode t))
 
-(evil-mode 1)
-(evil-set-toggle-key "C-S-z")
+;; (evil-mode 1)
 
 (provide 'init-evil)
