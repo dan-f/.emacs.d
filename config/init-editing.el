@@ -8,6 +8,9 @@
 (setq auto-save-default nil)
 (setq visible-bell t)
 
+(electric-indent-mode -1)
+(global-set-key (kbd "RET") 'newline-and-indent)
+
 ;; editing packages
 (use-package undo-tree
   :ensure t
@@ -76,7 +79,8 @@
   "Delete trailing whitespace from the buffer, ignoring the
 current line if the point is within trailing whitespace."
   (interactive)
-  (unless buffer-read-only
+  (when (and buffer-file-name
+             (file-writable-p buffer-file-name))
     (if (and (looking-at "[[:space:]]*$")
              (looking-back "[[:space:]]"))
         (progn

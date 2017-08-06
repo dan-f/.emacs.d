@@ -10,6 +10,10 @@
  '(fci-rule-color "#2e2e2e")
  '(helm-projectile-fuzzy-match nil)
  '(indicate-buffer-boundaries (quote right))
+ '(js2-indent-switch-body t)
+ '(package-selected-packages
+   (quote
+    (zerodark-theme yaml-mode web-mode use-package ttl-mode sparql-mode solarized-theme smartparens seoul256-theme sass-mode rust-mode rainbow-delimiters powerline plan9-theme nodejs-repl noctilux-theme markdown-mode magit-filenotify key-chord js2-refactor ido-completing-read+ http highlight-symbol helm-themes helm-projectile haskell-mode gotham-theme go-mode github-theme git-gutter flycheck-rust flycheck-ghcmod expand-region exec-path-from-shell evil-magit evil-leader evil-god-state evil-commentary dtrt-indent doom-themes distinguished-theme dired-details counsel-projectile company cider auctex ag)))
  '(safe-local-variable-values
    (quote
     ((web-mode-sql-indent-offset . 4)

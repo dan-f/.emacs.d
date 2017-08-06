@@ -3,6 +3,8 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (display-graphic-p)
+    (unbind-key (kbd "C-z")))
 
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 (setq custom-file (concat user-emacs-directory "custom.el"))

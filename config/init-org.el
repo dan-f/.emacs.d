@@ -12,10 +12,12 @@
   (setq org-capture-templates
         '(("n" "Note" entry (file+datetree "~/org/notes.org")
            "* %?\nEntered on %U\n  %i\n")
-          ("t" "Work Task" entry (file+headline "~/org/agendas/work.org" "Tasks"))
+          ("t" "Work Task" entry (file+headline "~/org/agendas/work.org" "Tasks")
+           "** %? %t")
           ("m" "Work Meeting" entry (file+headline "~/org/agendas/work.org" "Meetings")
            "** Meeting %?\n%U\n  %i\n")
-          ("p" "Personal Task" entry (file+headline "~/org/agendas/personal.org" "Tasks"))))
+          ("p" "Personal Task" entry (file+headline "~/org/agendas/personal.org" "Tasks")
+           "** %? %t")))
   ;; org-babel
   (org-babel-do-load-languages
    'org-babel-load-languages

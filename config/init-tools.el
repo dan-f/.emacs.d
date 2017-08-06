@@ -25,9 +25,9 @@
     :bind (("M-x" . counsel-M-x)
            :map read-expression-map
            ("C-r" . counsel-expression-history)))
-  (use-package swiper
-    :ensure t
-    :bind ("C-s" . swiper))
+  ;; (use-package swiper
+  ;;   :ensure t
+  ;;   :bind ("C-s" . swiper))
   (ivy-mode t))
 
 (use-package magit
@@ -35,8 +35,12 @@
   :bind (("C-c m" . magit-status)
          ("<f5>" . magit-status))
   :init
+  (add-hook 'magit-status-mode-hook 'magit-filenotify-mode)
   (setq magit-last-seen-setup-instructions "1.4.0"
         magit-push-always-verify nil))
+
+(use-package magit-filenotify
+  :ensure t)
 
 (use-package git-gutter
   :ensure t
@@ -54,7 +58,8 @@
 (use-package company
   :ensure t
   :init
-  (setq company-idle-delay 0.1)
+  (setq company-idle-delay 0.1
+        company-dabbrev-downcase nil)
   :config
   (global-company-mode))
 
