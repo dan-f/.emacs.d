@@ -7,6 +7,7 @@
 ;;     (unbind-key (kbd "C-z")))
 
 (add-to-list 'load-path (concat user-emacs-directory "config"))
+(add-to-list 'load-path (concat user-emacs-directory "elisp"))
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (when (file-exists-p custom-file)
   (load custom-file))
@@ -18,18 +19,19 @@
 
 (dolist (module '(init-packages
                   init-appearance
+                  init-commands
                   init-editing
                   init-evil
                   init-global-settings
                   init-haskell
                   init-js
-                  init-lisp
                   init-linkeddata
+                  init-lisp
                   init-markdown
                   init-org
                   init-osx
-                  init-server
                   init-python
+                  init-server
                   init-tools
                   init-web
                   ))

@@ -1,3 +1,5 @@
+(require 'df-files)
+
 (use-package org
   :ensure t
   :bind (("C-c a" . org-agenda)
@@ -10,7 +12,8 @@
   ;; org-capture
   (setq org-default-notes-file (concat org-directory "/notes.org"))
   (setq org-capture-templates
-        '(("n" "Note" entry (file+datetree "~/org/notes.org")
+        '(("f" "File" plain (file (dan-f/get-unique-filename "~/org/files/" ".org")))
+          ("n" "Note" entry (file+datetree "~/org/notes.org")
            "* %?\nEntered on %U\n  %i\n")
           ("t" "Work Task" entry (file+headline "~/org/agendas/work.org" "Tasks")
            "** %? %t")
