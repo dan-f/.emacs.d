@@ -10,6 +10,15 @@
   :config
   (dired-details-install))
 
+(use-package dired-hide-dotfiles
+  :ensure t
+  :init
+  (defun dired-mode-hook-dotfiles ()
+    "Enables `dired-hide-dotfiles-mode'"
+    (dired-hide-dotfiles-mode)
+    (define-key dired-mode-map "." #'dired-hide-dotfiles-mode))
+  (add-hook 'dired-mode-hook #'dired-mode-hook-dotfiles))
+
 (use-package projectile
   :ensure t
   :config (projectile-global-mode))

@@ -4,4 +4,6 @@
   :ensure t
   :init (load-theme 'plan9))
 
+(hl-line-mode)
+
 (provide 'init-appearance)
