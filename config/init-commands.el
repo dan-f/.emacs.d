@@ -11,17 +11,14 @@
     (find-file-other-window filename)))
 
 (defvar dan-f/command-map
-  (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-c n") 'dan-f/capture-note)
+  (let ((map (make-sparse-keymap "dan-f command")))
+    (define-key map "b" 'switch-to-buffer)
+    (define-key map "n" 'dan-f/capture-note)
+    (define-key map "s" 'eshell)
+    (define-key map "q" 'save-buffers-kill-terminal)
     map)
   "The keymap for dan-f stuff")
 
-(define-minor-mode dan-f/command-mode
-  "Global minor mode for dan-f custom commands"
-  :group 'dan-f
-  :global t
-  :keymap dan-f/command-map)
-
-(dan-f/command-mode)
+(global-set-key (kbd "s-SPC") dan-f/command-map)
 
 (provide 'init-commands)

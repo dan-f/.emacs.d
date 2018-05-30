@@ -29,6 +29,7 @@
   (add-hook 'org-mode-hook '(lambda ()
                               (if (fboundp 'dan-f/editing-mode)
                                   (dan-f/editing-mode -1))))
-  (auto-fill-mode))
+  (add-hook 'org-mode-hook
+    (auto-fill-mode)))
 
 (provide 'init-org)

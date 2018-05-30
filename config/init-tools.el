@@ -1,3 +1,5 @@
+(require 'init-commands)
+
 (use-package exec-path-from-shell
   :ensure t
   :config (when (memq window-system '(mac ns))
@@ -21,7 +23,9 @@
 
 (use-package projectile
   :ensure t
-  :config (projectile-global-mode))
+  :config (projectile-global-mode)
+  :bind (:map dan-f/command-map
+              ("p" . projectile-command-map)))
 
 (use-package ivy
   :ensure t
@@ -33,18 +37,18 @@
     :ensure t
     :bind (("M-x" . counsel-M-x)
            :map read-expression-map
-           ("C-r" . counsel-expression-history)))
-  ;; (use-package swiper
-  ;;   :ensure t
-  ;;   :bind ("C-s" . swiper))
+           ("C-r" . counsel-expression-history)
+           ("C-c t" . counsel-load-theme)
+           :map dan-f/command-map
+           ("r" . counsel-bookmark)))
   (ivy-mode t))
 
 (use-package magit
   :ensure t
-  :bind (("C-c m" . magit-status)
-         ("<f5>" . magit-status))
+  :bind (:map dan-f/command-map
+              ("m" . magit-status))
   :init
-  (add-hook 'magit-status-mode-hook 'magit-filenotify-mode)
+  ;; (add-hook 'magit-status-mode-hook 'magit-filenotify-mode)
   (setq magit-last-seen-setup-instructions "1.4.0"
         magit-push-always-verify nil))
 

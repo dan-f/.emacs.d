@@ -20,4 +20,19 @@
 (use-package ibuffer
   :bind ("C-x C-b" . ibuffer))
 
+;; global keybindings
+(defvar dan-f/global-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "C-c s") 'eshell)
+    map))
+
+(define-minor-mode dan-f/global-mode
+  "Minor mode for global editing bindings.  Avoids polluting the
+global keybinding scope."
+  :group 'dan-f
+  :global t
+  :keymap dan-f/global-map)
+
+(dan-f/global-mode)
+
 (provide 'init-global-settings)

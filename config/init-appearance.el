@@ -1,8 +1,10 @@
 (setq custom-safe-themes t)
 
-(use-package plan9-theme
+(use-package flatui-theme
   :ensure t
-  :init (load-theme 'plan9))
+  :init (load-theme 'flatui))
+
+(set-frame-font "Fira Code 14")
 
 (hl-line-mode)
 
