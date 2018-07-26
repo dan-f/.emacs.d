@@ -23,9 +23,9 @@
 
 (use-package projectile
   :ensure t
-  :config (projectile-global-mode)
-  :bind (:map dan-f/command-map
-              ("p" . projectile-command-map)))
+  :config
+  (projectile-global-mode)
+  (define-key dan-f/command-map "p" projectile-command-map))
 
 (use-package ivy
   :ensure t
@@ -75,6 +75,19 @@
         company-dabbrev-downcase nil)
   :config
   (global-company-mode))
+
+(use-package lsp-mode
+  :ensure t)
+
+(use-package lsp-ui
+  :ensure t
+  :config
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+
+(use-package company-lsp
+  :ensure t
+  :config
+  (push 'company-lsp company-backend))
 
 (setq rcirc-server-alist
       '(("irc.freenode.net" :port 6697 :encryption tls

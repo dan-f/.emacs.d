@@ -1,11 +1,11 @@
 (setq custom-safe-themes t)
 
-(use-package flatui-theme
+(use-package seoul256-theme
   :ensure t
-  :init (load-theme 'flatui))
+  :init (load-theme 'seoul256))
 
 (set-frame-font "Fira Code 14")
 
-(hl-line-mode)
+(global-hl-line-mode)
 
 (provide 'init-appearance)

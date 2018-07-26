@@ -9,6 +9,15 @@
               ("C-j" . evil-window-down)
               ("C-k" . evil-window-up)
               ("C-l" . evil-window-right))
+  :bind (:map evil-motion-state-map
+              ("C-h" . evil-window-left)
+              ("C-j" . evil-window-down)
+              ("C-k" . evil-window-up)
+              ("C-l" . evil-window-right)
+              ("C-h" . evil-window-left)
+              ("C-j" . evil-window-down)
+              ("C-k" . evil-window-up)
+              ("C-l" . evil-window-right))
   :init
   (setq evil-want-C-u-scroll t
         evil-set-toggle-key "C-S-z"))
@@ -25,14 +34,15 @@
   :config
   (setq evil-leader/leader "SPC")
   (evil-leader/set-key
-    "e" 'find-file
+    "a" 'org-agenda
     "b" 'switch-to-buffer
-    "q" 'evil-quit
-    "f" 'projectile-find-file
-    "m" 'magit-status
+    "f" 'find-file
     "h" 'helm-command-prefix
-    "p" 'projectile-switch-project
-    "a" 'org-agenda)
+    "m" 'magit-status
+    "n" 'dan-f/capture-note
+    "p" 'projectile-command-map
+    "q" 'evil-quit
+    "r" 'counsel-bookmark)
   (global-evil-leader-mode))
 
 (use-package key-chord
@@ -42,6 +52,6 @@
   (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
   (key-chord-mode t))
 
-;; (evil-mode 1)
+(evil-mode 1)
 
 (provide 'init-evil)
