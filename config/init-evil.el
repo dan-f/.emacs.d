@@ -1,3 +1,5 @@
+(require 'init-commands)
+
 (use-package evil
   :ensure t
   :bind (:map evil-normal-state-map
@@ -29,21 +31,8 @@
   :ensure t
   :config (evil-commentary-mode))
 
-(use-package evil-leader
-  :ensure t
-  :config
-  (setq evil-leader/leader "SPC")
-  (evil-leader/set-key
-    "a" 'org-agenda
-    "b" 'switch-to-buffer
-    "f" 'find-file
-    "h" 'helm-command-prefix
-    "m" 'magit-status
-    "n" 'dan-f/capture-note
-    "p" 'projectile-command-map
-    "q" 'evil-quit
-    "r" 'counsel-bookmark)
-  (global-evil-leader-mode))
+(dolist (state '(normal motion visual))
+  (evil-global-set-key state (kbd "SPC") dan-f/command-map))
 
 (use-package key-chord
   :ensure t

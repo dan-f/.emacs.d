@@ -2,7 +2,7 @@
   :ensure t)
 
 (use-package lsp-ocaml
-  :config
+  :init
   (add-hook 'tuareg-mode-hook #'lsp-ocaml-enable))
 
 (provide 'init-ocaml)

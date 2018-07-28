@@ -1,10 +1,11 @@
 (require 'df-files)
+(require 'init-commands)
 
 (use-package org
   :ensure t
-  :bind (("C-c a" . org-agenda)
-         ("C-c c" . org-capture)
-         ("C-c l" . org-store-link))
+  :bind (:map dan-f/command-map
+              ("a" . org-agenda)
+              ("c" . org-capture))
   :config
   ;; org-agenda
   (setq org-agenda-files '("~/org/agendas/work.org"
@@ -30,6 +31,6 @@
                               (if (fboundp 'dan-f/editing-mode)
                                   (dan-f/editing-mode -1))))
   (add-hook 'org-mode-hook
-    (auto-fill-mode)))
+            (auto-fill-mode)))
 
 (provide 'init-org)

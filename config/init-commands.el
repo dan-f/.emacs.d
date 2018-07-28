@@ -11,11 +11,13 @@
     (find-file-other-window filename)))
 
 (defvar dan-f/command-map
-  (let ((map (make-sparse-keymap "dan-f command")))
+  (let ((map (make-sparse-keymap "cmd")))
     (define-key map "b" 'switch-to-buffer)
+    (define-key map "f" 'find-file)
     (define-key map "n" 'dan-f/capture-note)
     (define-key map "s" 'eshell)
     (define-key map "q" 'save-buffers-kill-terminal)
+    (define-key map "x" ctl-x-map)
     map)
   "The keymap for dan-f stuff")
 

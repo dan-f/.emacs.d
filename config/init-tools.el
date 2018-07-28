@@ -33,15 +33,20 @@
   (setq ivy-use-virtual-buffers t
         projectile-completion-system 'ivy)
   :config
-  (use-package counsel
-    :ensure t
-    :bind (("M-x" . counsel-M-x)
-           :map read-expression-map
-           ("C-r" . counsel-expression-history)
-           ("C-c t" . counsel-load-theme)
-           :map dan-f/command-map
-           ("r" . counsel-bookmark)))
   (ivy-mode t))
+
+(use-package counsel
+  :ensure t
+  :bind (("M-x" . counsel-M-x)
+         :map read-expression-map
+         ("C-r" . counsel-expression-history)
+         ("C-c t" . counsel-load-theme)
+         :map dan-f/command-map
+         ("r" . counsel-bookmark)))
+
+(use-package swiper
+  :ensure t
+  :bind (("C-s" . swiper)))
 
 (use-package magit
   :ensure t

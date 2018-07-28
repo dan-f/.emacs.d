@@ -13,8 +13,6 @@
             smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
             smart-yank))))   ; Yank behavior depend on mode.
 
-
-
 (use-package cider
   :ensure t)
 
