@@ -42,11 +42,11 @@
 
 (use-package rainbow-delimiters
   :ensure t
-  :config (add-hook 'prog-mode-hook '(lambda () (rainbow-delimiters-mode))))
+  :config (add-hook 'prog-mode-hook (lambda () (rainbow-delimiters-mode))))
 
 (use-package highlight-symbol
   :ensure t
-  :config (add-hook 'prog-mode-hook '(lambda () (progn (highlight-symbol-mode) (highlight-symbol-nav-mode)))))
+  :config (add-hook 'prog-mode-hook (lambda () (progn (highlight-symbol-mode) (highlight-symbol-nav-mode)))))
 
 (use-package dtrt-indent
   :ensure t

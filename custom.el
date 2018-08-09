@@ -11,9 +11,10 @@
  '(helm-projectile-fuzzy-match nil)
  '(indicate-buffer-boundaries (quote right))
  '(js2-indent-switch-body t)
+ '(org-agenda-files (quote ("~/org/agendas/personal.org")))
  '(package-selected-packages
    (quote
-    (golden-ratio evil-lisp-state spacemacs-theme lsp-ui company-lsp lsp-mode lsp-ocaml lsp-rust tuareg parinfer flycheck-flow company-flow multi-term dired-hide-dotfiles company-ghci flycheck counsel ivy projectile js2-mode evil multiple-cursors undo-tree zerodark-theme yaml-mode web-mode use-package ttl-mode sparql-mode solarized-theme smartparens seoul256-theme sass-mode rust-mode rainbow-delimiters powerline plan9-theme nodejs-repl noctilux-theme markdown-mode magit-filenotify key-chord js2-refactor ido-completing-read+ http highlight-symbol helm-themes helm-projectile haskell-mode gotham-theme go-mode github-theme git-gutter flycheck-rust flycheck-ghcmod expand-region exec-path-from-shell evil-magit evil-leader evil-god-state evil-commentary dtrt-indent doom-themes distinguished-theme dired-details counsel-projectile company cider auctex ag)))
+    (utop golden-ratio evil-lisp-state spacemacs-theme lsp-ui company-lsp lsp-mode lsp-ocaml lsp-rust tuareg parinfer flycheck-flow company-flow multi-term dired-hide-dotfiles company-ghci flycheck counsel ivy projectile js2-mode evil multiple-cursors undo-tree zerodark-theme yaml-mode web-mode use-package ttl-mode sparql-mode solarized-theme smartparens seoul256-theme sass-mode rust-mode rainbow-delimiters powerline plan9-theme nodejs-repl noctilux-theme markdown-mode magit-filenotify key-chord js2-refactor ido-completing-read+ http highlight-symbol helm-themes helm-projectile haskell-mode gotham-theme go-mode github-theme git-gutter flycheck-rust flycheck-ghcmod expand-region exec-path-from-shell evil-magit evil-leader evil-god-state evil-commentary dtrt-indent doom-themes distinguished-theme dired-details counsel-projectile company cider auctex ag)))
  '(safe-local-variable-values
    (quote
     ((web-mode-sql-indent-offset . 4)

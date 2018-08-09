@@ -2,7 +2,7 @@
 
 (use-package exec-path-from-shell
   :ensure t
-  :config (when (memq window-system '(mac ns))
+  :config (when window-system
             (exec-path-from-shell-initialize)))
 
 (use-package dired-details
