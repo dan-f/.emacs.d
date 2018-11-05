@@ -5,13 +5,6 @@
   :config (when window-system
             (exec-path-from-shell-initialize)))
 
-(use-package dired-details
-  :ensure t
-  :init
-  (setq dired-details-hidden-string "")
-  :config
-  (dired-details-install))
-
 (use-package dired-hide-dotfiles
   :ensure t
   :init
