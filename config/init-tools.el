@@ -16,6 +16,8 @@
 
 (use-package projectile
   :ensure t
+  :init
+  (setq projectile-switch-project-action #'projectile-dired)
   :config
   (projectile-global-mode)
   (define-key dan-f/command-map "p" projectile-command-map))
