@@ -37,7 +37,9 @@
          ("C-r" . counsel-expression-history)
          ("C-c t" . counsel-load-theme)
          :map dan-f/command-map
-         ("r" . counsel-bookmark)))
+         ("r" . counsel-bookmark)
+         :map dan-f/command-map
+         ("t" . counsel-load-theme)))
 
 (use-package swiper
   :ensure t

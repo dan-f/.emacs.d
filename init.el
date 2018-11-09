@@ -24,10 +24,10 @@
                   init-js
                   init-linkeddata
                   init-lisp
+                  init-macos
                   init-markdown
                   init-ocaml
                   init-org
-                  init-osx
                   init-python
                   init-rust
                   init-server

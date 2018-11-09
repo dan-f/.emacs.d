@@ -6,7 +6,6 @@
 (setq make-backup-files nil)
 (setq backup-inhibited t)
 (setq auto-save-default nil)
-(setq visible-bell t)
 
 (electric-indent-mode -1)
 (global-set-key (kbd "RET") 'newline-and-indent)

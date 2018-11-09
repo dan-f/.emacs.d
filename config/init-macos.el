@@ -1,3 +1,4 @@
+(setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
 
 (global-set-key (kbd "s-s") 'save-buffer)
@@ -7,4 +8,4 @@
 (global-set-key (kbd "s-k") 'kill-buffer)
 (global-set-key (kbd "s-m") 'magit-status)
 
-(provide 'init-osx)
+(provide 'init-macos)

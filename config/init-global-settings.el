@@ -9,7 +9,12 @@
   (progn
     ;; (setq mouse-wheel-progressive-speed nil)
     (setq mouse-wheel-scroll-amount '(0.01))))
+(setq ring-bell-function 'ignore)
+(setq split-height-threshold nil)
+
+;; dired
 (put 'dired-find-alternate-file 'disabled nil)
+(define-key dired-mode-map (kbd "SPC") nil)
 
 ;; global minor modes
 (global-auto-revert-mode)
