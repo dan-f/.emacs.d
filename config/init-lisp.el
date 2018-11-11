@@ -1,3 +1,5 @@
+(require 'init-eval)
+
 (use-package parinfer
   :ensure t
   :bind
@@ -12,16 +14,22 @@
             smart-yank))))   ; Yank behavior depend on mode.
 
 (use-package cider
-  :ensure t)
+  :ensure t
+  :config
+  (dan-f/eval-for-mode clojure
+    (sexp . cider-eval-last-sexp)
+    (defn . cider-eval-defun-at-point)
+    (buff . cider-read-eval-buffer)
+    (regn . cider-eval-region)))
 
-(defun lispy-mode-hooks ()
+(defun lisp-mode-hooks ()
   (eldoc-mode)
   (parinfer-mode))
 
-(add-hook 'emacs-lisp-mode-hook 'lispy-mode-hooks)
-(add-hook 'scheme-mode-hook 'lispy-mode-hooks)
-(add-hook 'common-lisp-mode-hook 'lispy-mode-hooks)
-(add-hook 'clojure-mode-hook 'lispy-mode-hooks)
+(add-hook 'emacs-lisp-mode-hook 'lisp-mode-hooks)
+(add-hook 'scheme-mode-hook 'lisp-mode-hooks)
+(add-hook 'common-lisp-mode-hook 'lisp-mode-hooks)
+(add-hook 'clojure-mode-hook 'lisp-mode-hooks)
 (add-hook 'lisp-mode-hook #'parinfer-mode)
 
 (provide 'init-lisp)

@@ -13,8 +13,9 @@
 (setq split-height-threshold nil)
 
 ;; dired
-(put 'dired-find-alternate-file 'disabled nil)
-(define-key dired-mode-map (kbd "SPC") nil)
+(use-package dired
+  :init
+  (put 'dired-find-alternate-file 'disabled nil))
 
 ;; global minor modes
 (global-auto-revert-mode)

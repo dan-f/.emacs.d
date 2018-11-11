@@ -18,6 +18,7 @@
                   init-appearance
                   init-commands
                   init-editing
+                  init-eval
                   init-evil
                   init-global-settings
                   init-haskell
