@@ -23,6 +23,7 @@
   (define-key dan-f/command-map "p" projectile-command-map))
 
 (use-package ivy
+  :after projectile
   :ensure t
   :init
   (setq ivy-use-virtual-buffers t
@@ -42,6 +43,7 @@
          ("t" . counsel-load-theme)))
 
 (use-package swiper
+  :after counsel
   :ensure t
   :bind (("C-s" . swiper)))
 
@@ -53,9 +55,6 @@
   ;; (add-hook 'magit-status-mode-hook 'magit-filenotify-mode)
   (setq magit-last-seen-setup-instructions "1.4.0"
         magit-push-always-verify nil))
-
-(use-package magit-filenotify
-  :ensure t)
 
 (use-package git-gutter
   :ensure t
@@ -82,11 +81,13 @@
   :ensure t)
 
 (use-package lsp-ui
+  :after lsp-mode
   :ensure t
   :config
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
 (use-package company-lsp
+  :after (lsp-mode company)
   :ensure t
   :config
   (push 'company-lsp company-backend))
